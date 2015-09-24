@@ -3,295 +3,62 @@
     <head>
         <title> </title>
     </head>
-   <style>
- 
-
-   </style>
-<style>
-	body{
-		background-image:url(https://38.media.tumblr.com/a1fd8adb28873f209af8e889057829fd/tumblr_ms0eoaxZ5J1sbavuuo1_500.gif);
-	}
-
-	*{ 
-		box-sizing: border-box; 
-		margin: 0; 
-		padding: 0 
-	}
-.body{
-	color: red;
-		text-shadow: 0 0px 0 rgba( 0, 0, 0, .6 );
-		font-family: 'Open Sans', sans-serif;
-		font-size: 13px;
-line-height: 16px;
-		overflow: auto;
-	
-
-	}
-	#viewport {
-		-webkit-perspective: 1000; 
-		-moz-perspective: 1000; 
-		-o-perspective: 1000; 
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		overflow: hidden;
-/*background-image: linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%) ;*/
-		/*background-image: -o-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
-		/*background-image: -moz-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
-		/*background-image: -webkit-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
-		/*background-image: -ms-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
-		/*background-image: -webkit-gradient(*/
-
-			linear,
-			left bottom,
-			left top,
-            /*color-stop(0.28, blue),*/
-			/*color-stop(0.64, blue)*/
-
-		);
-	}
-
-
-
-#world {
-	  border-radius: 25px;
-	 margin: 30px;
-  background-color: #707070;
-  border: 1px solid white;
-  opacity:0.6;
-  filter:alpha(opacity=60);
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		margin-left: -536px;
-		margin-top: -256px;
-		height: 712px;
-		width: 1012px;
-		
-	  : url();
-		-webkit-transform-style: preserve-3d;
-		-moz-transform-style: preserve-3d;
-		-o-transform-style: preserve-3d;
-	}
+  <style>
 
 
 	
+body{background-image:url(http://api.ning.com/files/BrAPCEwtvYB8xfol6dHzmC9hFCbUmSPLCjdNcFCc32FXwFt-idSY8yspuCxS6Dj7GY5YpbOQDZrcW834OBuYELByJi*O3LZq/Computerscience.jpg);}
 
-	</style>
-	<script type="text/javascript">
-/* <![CDATA[ */
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-625393-26']);
-_gaq.push(['_trackPageview']);
 
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+	li, links{top:-2191px;position:relative; left:290px; background-color:white;color:black;width:200px;padding:8px;}	
+	#ram{position:relative;top:-1380px;left:450px;background-color:black;}
+	
+		h1,p{position:relative;top:0px; color:aqua;left:0px;width:400px;background-color:black;border:5px groove red;}
 
-(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
-/* ]]> */
-</script>
-</head>
-	<body>
-	
-	<div id="viewport" >
-		<div id="world" >
-		</div>
-	</div>
-	
-	<script>
-	
-	(function() {
-		var lastTime = 0;
-		var vendors = ['ms', 'moz', 'webkit', 'o'];
-		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-			window.cancelRequestAnimationFrame = window[vendors[x]+
-			  'CancelRequestAnimationFrame'];
-		}
+.img{width:200px; height:200px; top:-1260px;left:942px;position:relative;}
 
-		if (!window.requestAnimationFrame)
-			window.requestAnimationFrame = function(callback, element) {
-				var currTime = new Date().getTime();
-				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
-				  timeToCall);
-				lastTime = currTime + timeToCall;
-				return id;
-			};
-
-		if (!window.cancelAnimationFrame)
-			window.cancelAnimationFrame = function(id) {
-				clearTimeout(id);
-			};
-	}())
-
-	var layers = [],
-		objects = [],
-		
-		world = document.getElementById( 'world' ),
-		viewport = document.getElementById( 'viewport' ),
-		
-		d = 0,
-		p = 400,
-		worldXAngle = 0,
-		worldYAngle = 0;
-	
-	viewport.style.webkitPerspective = p;
-	viewport.style.MozPerspective = p;
-	viewport.style.oPerspective = p;
-	
-	generate();
-	
-	function createCloud() {
-	
-		var div = document.createElement( 'div'  );
-		div.className = 'cloudBase';
-		var x = 256 - ( Math.random() * 512 );
-		var y = 256 - ( Math.random() * 512 );
-		var z = 256 - ( Math.random() * 512 );
-		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
-		div.style.webkitTransform = t;
-		div.style.MozTransform = t;
-		div.style.oTransform = t;
-		world.appendChild( div );
-		
-		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
-			var cloud = document.createElement( 'img' );
-			cloud.style.opacity = 0;
-			var r = Math.random();
-			var src = 'cloud.png';
-			( function( img ) { img.addEventListener( 'load', function() {
-				img.style.opacity = .8;
-			} ) } )( cloud );
-			cloud.setAttribute( 'src', src );
-			cloud.className = 'cloudLayer';
-			
-			var x = 256 - ( Math.random() * 512 );
-			var y = 256 - ( Math.random() * 512 );
-			var z = 100 - ( Math.random() * 200 );
-			var a = Math.random() * 360;
-			var s = .25 + Math.random();
-			x *= .2; y *= .2;
-			cloud.data = { 
-				x: x,
-				y: y,
-				z: z,
-				a: a,
-				s: s,
-				speed: .1 * Math.random()
-			};
-			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
-			cloud.style.webkitTransform = t;
-			cloud.style.MozTransform = t;
-			cloud.style.oTransform = t;
-		
-			div.appendChild( cloud );
-			layers.push( cloud );
-		}
-		
-		return div;
-	}
-	
-	window.addEventListener( 'mousewheel', onContainerMouseWheel );
-	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
-
-	window.addEventListener( 'mousemove', function( e ) {
-		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
-		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
-		updateView();
-	} );
-	
-	function generate() {
-		objects = [];
-		if ( world.hasChildNodes() ) {
-			while ( world.childNodes.length >= 1 ) {
-				world.removeChild( world.firstChild );       
-			} 
-		}
-		for( var j = 0; j < 5; j++ ) {
-			objects.push( createCloud() );
-		}
-	}
-	
-	function updateView() {
-		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
-		world.style.webkitTransform = t;
-		world.style.MozTransform = t;
-		world.style.oTransform = t;
-	}
-	
-	function onContainerMouseWheel( event ) {
-			
-		event = event ? event : window.event;
-		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
-		updateView();
-		
-	}
-	
-	function update (){
-		
-		for( var j = 0; j < layers.length; j++ ) {
-			var layer = layers[ j ];
-			layer.data.a += layer.data.speed;
-			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
-			layer.style.webkitTransform = t;
-			layer.style.MozTransform = t;
-			layer.style.oTransform = t;
-		}
-		
-	 globalAnimationFrame( update );
-		
-	}
-	
-	update();
-
-	</script>
-	
-	<script type="text/javascript">/* CloudFlare analytics upgrade */
-</script>
-	
-	</body>
-<style>
- .kimg{width:200px;position:relative;top:-620px;left:850px;}
- .img{position:relative;width:200px; left:500px; top:-190px;}
-  .com{position:relative;left:500px;font-family:sans-serif;top:-190px;font-size:18px;width:290px;height:300px;color:aqua; }
- #compu{color:aqua;position:relative;top:-700px;left:480px; }
-  .keyboardimg{color:lime;position:relative;top:-900px;left:851px;}
-  .keyboard{position:relative;width:200px;font-size:18px;font-family:sans-serif; top:-640px;left:850px;color:lime;}
-   #info{position:relative;;font-size:20px;top:130px;left:200px; width:200px;height:150px;color:red; }
-   .image{position:relative;width:200px; top:150px;left:200px;}
-   .h1{position:relative;top:0px;left:50px;color:yellow;}
-links, li {position:relative;background-color:lime; width:100px;top:-950px;color:black;left:1100px;}
-#hard_drive{color:red; position:relative;width:200px;left:185px; top:110px;}
-
+#CPU{position:relative;top:-650px;left:900px;background-color:black;color:aqua;}
+.image{position:relative;width:200px;height:200px; top:-700px;left:525px;}
+#motherboard{font-size:30px;}
 </style>
     <body>
-<h1 class="h1" >Computer Hardware part 2</h1> <h1 id="hard_drive" > Hard Drive</h1> <p id="info" > Storage is the <u>hard drive's</u> responsibility. Everything you keep on your computer is on a <u>hard drive</u>. Not just documents, pictures, music, and videos</p>
-  <img  src="http://cdn.makeuseof.com/wp-content/uploads/2010/03/cpu.gif?e9577d" class="image">
-  <h1 class="com"><u>Computer components</u> are connected to each other via thin connections known as <u>'bus'</u> on the motherboard. 
-
-The devices follow a communication protocol defined by IEEE. Protocols tend to differ for each type of device / bus. 
-
-Since multiple devices can be connected to the same bus, the communications are handled by the <u>'bus controller'</u>. 
 
 
+
+
+
+
+ <div class="sky">
+    	
+    	<div class="moon"></div>
+    
+        <div class="clouds_one"></div>
+
+        <div class="clouds_two"></div>
+
+        <div class="clouds_three"></div>
+    </div>
+    <h1>Welcome to Computer Hardware<br> Part 2</h1>
+    <p id="motherboard">The Motherboard itself<br> is a printed circuit board<br> that allows the <u>CPU, RAM<br>, and all other computer  </u>hardware components<b></b> <br>to communicate with each<br> other. There are huge<br> variations in Motherboards<br> from design, cases, power <br>supply, size (Form Factor)and <br>compatibility</p>
+   <img src="http://www.ebuyer.com/blog/wp-content/uploads/2013/12/shutterstock_94945096.jpg" alt="Mountain View" style="width:304px;height:228px;">
+    </h1>
+   
+   <h1 id="CPU" >
+       The central processing<br> unit <u>(CPU)</u> is the brain<br> of your computer. It<br> handles all the instructions<br> you give your computer,<br> and the faster it does this,<br> the better. Learn about how<br>a CPU processes instructions<br> and how computer engineers<br> are continuously coming up<br> with ways to make it go faster.
 </h1>
-  <img src="https://i2.wp.com/upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/2000px-Computer_system_bus.svg.png" class="img">
-
- <h1 id="compu" > Computer communication</h1>
-
-  <h1 class="keyboard" >In computing, a computer keyboard is a typewriter-style device, which uses an arrangement of buttons or keys, to act as <u>mechanical levers or electronic switches</u> </h1>>
-  <h1 class="keyboardimg" >Keyboard  </h1>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCD45diXNy7eQ4HdevohiIOdFlHrmVH-fSFAKfUsO6ygO2nkcTFw" class="kimg" >
-   <ul class=links> <li><a href="Welcome.html">Welcome</a></li> 
-      <li><a href="About_Me.html">About me</a></li> 
-       <li><a href="computer_hardware.html">Computer hardware</a></li> 
-         <li><a href="Welcome.html">Welcome</a></li> 
+<img  src="http://cdn.makeuseof.com/wp-content/uploads/2010/03/cpu.gif?e9577d" class="image">
+    <h1 id="ram">
+    <p><u>RAM</u> - Random Access<br> Memory, or volatile<br> memory, is used by<br> the system to store data<br> for processing by a<br> computer's<br> central processing unit<br> (CPU), also known as<br> the processor. </p>
+ 
+    </h1>
+<img  src="http://macnerdy.com/wp-content/uploads/2014/07/mac-RAM.jpg" class="img">
+  
+  
+     <ul> <li><a href="About_Me.html">Look a website about me</a></li> 
+        <li><a href="index.html">Welcome</a></li> 
+                <li><a href="Computer_hardware.html">Computer hardware</a></li>  
          <li><a href="HTML.html">HTML</a></li> </ul>
+       
+    
     </body>
 </html>
