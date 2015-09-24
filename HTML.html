@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML </title>
+    </head>
+ 
+
+
+
+<style>
+
+
+
+
+
+
+
+
+
+
+    .element {position:absolute;left:0px;top:70px;}
+.element { background-image:url(https://lh4.ggpht.com/ZeZHGmUev-39aVw0mCfE6tTy1aYKHA742gZFjA6F3M34m928cyt-UpLQLEXx5CY4feY=w300);
+border-radius: 25px;
+ z-index:1;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  background-color: black;
+  -webkit-animation: stretch 1.5s ease-out 0s alternate 10 none running;
+  
+  /*animation-name: stretch;*/
+  /*animation-duration: 1.5s; */
+  /*animation-timing-function: ease-out; */
+  /*animation-delay: 0s;*/
+  /*animation-direction: alternate;*/
+  /*animation-iteration-count: 5;*/
+  /*animation-fill-mode: none;*/
+  /*animation-play-state: running;*/
+}
+
+@-webkit-keyframes stretch {
+  0% {
+    transform: scale(.3);
+    background-color: lime;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: aqua;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: black;
+  }
+}
+
+body,
+html {
+  height: 100%;
+}
+ 
+body {
+  background-image:url("https://ec.yimg.com/ec?url=https%3A%2F%2Ffarm3.static.flickr.com%2F2141%2F2460940920_2e2f6e48eb_o.gif&t=1442959709&sig=yOUlmlh2gytAiUmQkH164A--~C");
+  
+}
+    
+
+
+	
+	body{
+		background-image:url(http://previews.123rf.com/images/tombaky/tombaky0812/tombaky081200210/4010012-internet-html-code-technology-black-background-Stock-Photo.jpg);
+	}
+
+	*{ 
+		box-sizing: border-box; 
+		margin: 0; 
+		padding: 0 
+	}
+.body{
+	color: red;
+		text-shadow: 0 0px 0 rgba( 0, 0, 0, .6 );
+		font-family: 'Open Sans', sans-serif;
+		font-size: 13px;
+line-height: 16px;
+		overflow: auto;
+	
+
+	}
+	#viewport {
+		-webkit-perspective: 1000; 
+		-moz-perspective: 1000; 
+		-o-perspective: 1000; 
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+/*background-image: linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%) ;*/
+		/*background-image: -o-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -moz-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -webkit-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -ms-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -webkit-gradient(*/
+
+			linear,
+			left bottom,
+			left top,
+            /*color-stop(0.28, blue),*/
+			/*color-stop(0.64, blue)*/
+
+		);
+	}
+
+
+
+#world {
+        border-radius: 25px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -280px;
+		margin-top: -256px;
+		height: 900px;
+		width: 600px;
+		
+		background-color:aqua;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+	}
+
+
+	
+
+
+
+	}
+	</style>
+	<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-625393-26']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+	<body>
+	
+	<div id="viewport" >
+		<div id="world" >
+		</div>
+	</div>
+	
+	<script>
+	
+	(function() {
+		var lastTime = 0;
+		var vendors = ['ms', 'moz', 'webkit', 'o'];
+		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+			window.cancelRequestAnimationFrame = window[vendors[x]+
+			  'CancelRequestAnimationFrame'];
+		}
+
+		if (!window.requestAnimationFrame)
+			window.requestAnimationFrame = function(callback, element) {
+				var currTime = new Date().getTime();
+				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+				  timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+
+		if (!window.cancelAnimationFrame)
+			window.cancelAnimationFrame = function(id) {
+				clearTimeout(id);
+			};
+	}())
+
+	var layers = [],
+		objects = [],
+		
+		world = document.getElementById( 'world' ),
+		viewport = document.getElementById( 'viewport' ),
+		
+		d = 0,
+		p = 400,
+		worldXAngle = 0,
+		worldYAngle = 0;
+	
+	viewport.style.webkitPerspective = p;
+	viewport.style.MozPerspective = p;
+	viewport.style.oPerspective = p;
+	
+	generate();
+	
+	function createCloud() {
+	
+		var div = document.createElement( 'div'  );
+		div.className = 'cloudBase';
+		var x = 256 - ( Math.random() * 512 );
+		var y = 256 - ( Math.random() * 512 );
+		var z = 256 - ( Math.random() * 512 );
+		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
+		div.style.webkitTransform = t;
+		div.style.MozTransform = t;
+		div.style.oTransform = t;
+		world.appendChild( div );
+		
+		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
+			var cloud = document.createElement( 'img' );
+			cloud.style.opacity = 0;
+			var r = Math.random();
+			var src = 'cloud.png';
+			( function( img ) { img.addEventListener( 'load', function() {
+				img.style.opacity = .8;
+			} ) } )( cloud );
+			cloud.setAttribute( 'src', src );
+			cloud.className = 'cloudLayer';
+			
+			var x = 256 - ( Math.random() * 512 );
+			var y = 256 - ( Math.random() * 512 );
+			var z = 100 - ( Math.random() * 200 );
+			var a = Math.random() * 360;
+			var s = .25 + Math.random();
+			x *= .2; y *= .2;
+			cloud.data = { 
+				x: x,
+				y: y,
+				z: z,
+				a: a,
+				s: s,
+				speed: .1 * Math.random()
+			};
+			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
+			cloud.style.webkitTransform = t;
+			cloud.style.MozTransform = t;
+			cloud.style.oTransform = t;
+		
+			div.appendChild( cloud );
+			layers.push( cloud );
+		}
+		
+		return div;
+	}
+	
+	window.addEventListener( 'mousewheel', onContainerMouseWheel );
+	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
+
+	window.addEventListener( 'mousemove', function( e ) {
+		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
+		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
+		updateView();
+	} );
+	
+	function generate() {
+		objects = [];
+		if ( world.hasChildNodes() ) {
+			while ( world.childNodes.length >= 1 ) {
+				world.removeChild( world.firstChild );       
+			} 
+		}
+		for( var j = 0; j < 5; j++ ) {
+			objects.push( createCloud() );
+		}
+	}
+	
+	function updateView() {
+		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
+		world.style.webkitTransform = t;
+		world.style.MozTransform = t;
+		world.style.oTransform = t;
+	}
+	
+	function onContainerMouseWheel( event ) {
+			
+		event = event ? event : window.event;
+		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
+		updateView();
+		
+	}
+	
+	function update (){
+		
+		for( var j = 0; j < layers.length; j++ ) {
+			var layer = layers[ j ];
+			layer.data.a += layer.data.speed;
+			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
+			layer.style.webkitTransform = t;
+			layer.style.MozTransform = t;
+			layer.style.oTransform = t;
+		}
+		
+	 globalAnimationFrame( update );
+		
+	}
+	
+	update();
+
+	</script>
+	
+	<script type="text/javascript">/* CloudFlare analytics upgrade */
+</script>
+	
+	<script>
+	
+	(function() {
+		var lastTime = 0;
+		var vendors = ['ms', 'moz', 'webkit', 'o'];
+		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+			window.cancelRequestAnimationFrame = window[vendors[x]+
+			  'CancelRequestAnimationFrame'];
+		}
+
+		if (!window.requestAnimationFrame)
+			window.requestAnimationFrame = function(callback, element) {
+				var currTime = new Date().getTime();
+				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+				  timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+
+		if (!window.cancelAnimationFrame)
+			window.cancelAnimationFrame = function(id) {
+				clearTimeout(id);
+			};
+	}())
+
+	var layers = [],
+		objects = [],
+		
+		world = document.getElementById( 'world' ),
+		viewport = document.getElementById( 'viewport' ),
+		
+		d = 0,
+		p = 400,
+		worldXAngle = 0,
+		worldYAngle = 0;
+	
+	viewport.style.webkitPerspective = p;
+	viewport.style.MozPerspective = p;
+	viewport.style.oPerspective = p;
+	
+	generate();
+	
+	function createCloud() {
+	
+		var div = document.createElement( 'div'  );
+		div.className = 'cloudBase';
+		var x = 256 - ( Math.random() * 512 );
+		var y = 256 - ( Math.random() * 512 );
+		var z = 256 - ( Math.random() * 512 );
+		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
+		div.style.webkitTransform = t;
+		div.style.MozTransform = t;
+		div.style.oTransform = t;
+		world.appendChild( div );
+		
+		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
+			var cloud = document.createElement( 'img' );
+			cloud.style.opacity = 0;
+			var r = Math.random();
+			var src = 'cloud.png';
+			( function( img ) { img.addEventListener( 'load', function() {
+				img.style.opacity = .8;
+			} ) } )( cloud );
+			cloud.setAttribute( 'src', src );
+			cloud.className = 'cloudLayer';
+			
+			var x = 256 - ( Math.random() * 512 );
+			var y = 256 - ( Math.random() * 512 );
+			var z = 100 - ( Math.random() * 200 );
+			var a = Math.random() * 360;
+			var s = .25 + Math.random();
+			x *= .2; y *= .2;
+			cloud.data = { 
+				x: x,
+				y: y,
+				z: z,
+				a: a,
+				s: s,
+				speed: .1 * Math.random()
+			};
+			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
+			cloud.style.webkitTransform = t;
+			cloud.style.MozTransform = t;
+			cloud.style.oTransform = t;
+		
+			div.appendChild( cloud );
+			layers.push( cloud );
+		}
+		
+		return div;
+	
+	
+	window.addEventListener( 'mousewheel', onContainerMouseWheel );
+	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
+
+	window.addEventListener( 'mousemove', function( e ) {
+		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
+		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
+		updateView();
+	} );
+	
+	function generate() {
+		objects = [];
+		if ( world.hasChildNodes() ) {
+			while ( world.childNodes.length >= 1 ) {
+				world.removeChild( world.firstChild );       
+			} 
+		}
+		for( var j = 0; j < 5; j++ ) {
+			objects.push( createCloud() );
+		}
+	}
+	
+	function updateView() {
+		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
+		world.style.webkitTransform = t;
+		world.style.MozTransform = t;
+		world.style.oTransform = t;
+	}
+	
+	function onContainerMouseWheel( event ) {
+			
+		event = event ? event : window.event;
+		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
+		updateView();
+		
+	}
+	
+	function update (){
+		
+		for( var j = 0; j < layers.length; j++ ) {
+			var layer = layers[ j ];
+			layer.data.a += layer.data.speed;
+			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
+			layer.style.webkitTransform = t;
+			layer.style.MozTransform = t;
+			layer.style.oTransform = t;
+		}
+		
+	 globalAnimationFrame( update );
+		
+	}
+	
+	update();
+
+	</script>
+	
+	<script type="text/javascript">/* CloudFlare analytics upgrade */
+</script>
+
+
+	<style>
+	html {
+  height: 100%;
+}
+	
+	body{
+		background-image:url(http://previews.123rf.com/images/tombaky/tombaky0812/tombaky081200210/4010012-internet-html-code-technology-black-background-Stock-Photo.jpg);
+	}
+
+	*{ 
+		box-sizing: border-box; 
+		margin: 0; 
+		padding: 0 
+	}
+
+
+
+	body{
+	color: red;
+		text-shadow: 0 0px 0 rgba( 0, 0, 0, .6 );
+		font-family: 'Open Sans', sans-serif;
+		font-size: 13px;
+line-height: 16px;
+		overflow: auto;
+	
+
+	}
+	#viewport {
+		-webkit-perspective: 1000; 
+		-moz-perspective: 1000; 
+		-o-perspective: 1000; 
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+/*background-image: linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%) ;*/
+		/*background-image: -o-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -moz-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -webkit-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -ms-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);*/
+		/*background-image: -webkit-gradient(*/
+
+			linear,
+			left bottom,
+			left top,
+            /*color-stop(0.28, blue),*/
+			/*color-stop(0.64, blue)*/
+
+		);
+	}
+
+
+
+#world {
+        border-radius: 25px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -280px;
+		margin-top: -256px;
+		height: 900px;
+		width: 600px;
+		
+		background-color:aqua;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+	}
+
+
+	
+
+
+
+	}
+	</style>
+	<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-625393-26']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+	<body>
+	
+	<div id="viewport" >
+		<div id="world" >
+		</div>
+	</div>
+	
+	<script>
+	
+	(function() {
+		var lastTime = 0;
+		var vendors = ['ms', 'moz', 'webkit', 'o'];
+		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+			window.cancelRequestAnimationFrame = window[vendors[x]+
+			  'CancelRequestAnimationFrame'];
+		}
+
+		if (!window.requestAnimationFrame)
+			window.requestAnimationFrame = function(callback, element) {
+				var currTime = new Date().getTime();
+				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+				  timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+
+		if (!window.cancelAnimationFrame)
+			window.cancelAnimationFrame = function(id) {
+				clearTimeout(id);
+			};
+	}())
+
+	var layers = [],
+		objects = [],
+		
+		world = document.getElementById( 'world' ),
+		viewport = document.getElementById( 'viewport' ),
+		
+		d = 0,
+		p = 400,
+		worldXAngle = 0,
+		worldYAngle = 0;
+	
+	viewport.style.webkitPerspective = p;
+	viewport.style.MozPerspective = p;
+	viewport.style.oPerspective = p;
+	
+	generate();
+	
+	function createCloud() {
+	
+		var div = document.createElement( 'div'  );
+		div.className = 'cloudBase';
+		var x = 256 - ( Math.random() * 512 );
+		var y = 256 - ( Math.random() * 512 );
+		var z = 256 - ( Math.random() * 512 );
+		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
+		div.style.webkitTransform = t;
+		div.style.MozTransform = t;
+		div.style.oTransform = t;
+		world.appendChild( div );
+		
+		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
+			var cloud = document.createElement( 'img' );
+			cloud.style.opacity = 0;
+			var r = Math.random();
+			var src = 'cloud.png';
+			( function( img ) { img.addEventListener( 'load', function() {
+				img.style.opacity = .8;
+			} ) } )( cloud );
+			cloud.setAttribute( 'src', src );
+			cloud.className = 'cloudLayer';
+			
+			var x = 256 - ( Math.random() * 512 );
+			var y = 256 - ( Math.random() * 512 );
+			var z = 100 - ( Math.random() * 200 );
+			var a = Math.random() * 360;
+			var s = .25 + Math.random();
+			x *= .2; y *= .2;
+			cloud.data = { 
+				x: x,
+				y: y,
+				z: z,
+				a: a,
+				s: s,
+				speed: .1 * Math.random()
+			};
+			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
+			cloud.style.webkitTransform = t;
+			cloud.style.MozTransform = t;
+			cloud.style.oTransform = t;
+		
+			div.appendChild( cloud );
+			layers.push( cloud );
+		}
+		
+		return div;
+	}
+	
+	window.addEventListener( 'mousewheel', onContainerMouseWheel );
+	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
+
+	window.addEventListener( 'mousemove', function( e ) {
+		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
+		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
+		updateView();
+	} );
+	
+	function generate() {
+		objects = [];
+		if ( world.hasChildNodes() ) {
+			while ( world.childNodes.length >= 1 ) {
+				world.removeChild( world.firstChild );       
+			} 
+		}
+		for( var j = 0; j < 5; j++ ) {
+			objects.push( createCloud() );
+		}
+	}
+	
+	function updateView() {
+		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
+		world.style.webkitTransform = t;
+		world.style.MozTransform = t;
+		world.style.oTransform = t;
+	}
+	
+	function onContainerMouseWheel( event ) {
+			
+		event = event ? event : window.event;
+		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
+		updateView();
+		
+	}
+	
+	function update (){
+		
+		for( var j = 0; j < layers.length; j++ ) {
+			var layer = layers[ j ];
+			layer.data.a += layer.data.speed;
+			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
+			layer.style.webkitTransform = t;
+			layer.style.MozTransform = t;
+			layer.style.oTransform = t;
+		}
+		
+	 globalAnimationFrame( update );
+		
+	}
+	
+	update();
+
+	</script>
+	
+	<script type="text/javascript">/* CloudFlare analytics upgrade */
+</script>
+	
+	<script>
+	
+	(function() {
+		var lastTime = 0;
+		var vendors = ['ms', 'moz', 'webkit', 'o'];
+		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+			window.cancelRequestAnimationFrame = window[vendors[x]+
+			  'CancelRequestAnimationFrame'];
+		}
+
+		if (!window.requestAnimationFrame)
+			window.requestAnimationFrame = function(callback, element) {
+				var currTime = new Date().getTime();
+				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+				  timeToCall);
+				lastTime = currTime + timeToCall;
+				return id;
+			};
+
+		if (!window.cancelAnimationFrame)
+			window.cancelAnimationFrame = function(id) {
+				clearTimeout(id);
+			};
+	}())
+
+	var layers = [],
+		objects = [],
+		
+		world = document.getElementById( 'world' ),
+		viewport = document.getElementById( 'viewport' ),
+		
+		d = 0,
+		p = 400,
+		worldXAngle = 0,
+		worldYAngle = 0;
+	
+	viewport.style.webkitPerspective = p;
+	viewport.style.MozPerspective = p;
+	viewport.style.oPerspective = p;
+	
+	generate();
+	
+	function createCloud() {
+	
+		var div = document.createElement( 'div'  );
+		div.className = 'cloudBase';
+		var x = 256 - ( Math.random() * 512 );
+		var y = 256 - ( Math.random() * 512 );
+		var z = 256 - ( Math.random() * 512 );
+		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
+		div.style.webkitTransform = t;
+		div.style.MozTransform = t;
+		div.style.oTransform = t;
+		world.appendChild( div );
+		
+		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
+			var cloud = document.createElement( 'img' );
+			cloud.style.opacity = 0;
+			var r = Math.random();
+			var src = 'cloud.png';
+			( function( img ) { img.addEventListener( 'load', function() {
+				img.style.opacity = .8;
+			} ) } )( cloud );
+			cloud.setAttribute( 'src', src );
+			cloud.className = 'cloudLayer';
+			
+			var x = 256 - ( Math.random() * 512 );
+			var y = 256 - ( Math.random() * 512 );
+			var z = 100 - ( Math.random() * 200 );
+			var a = Math.random() * 360;
+			var s = .25 + Math.random();
+			x *= .2; y *= .2;
+			cloud.data = { 
+				x: x,
+				y: y,
+				z: z,
+				a: a,
+				s: s,
+				speed: .1 * Math.random()
+			};
+			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
+			cloud.style.webkitTransform = t;
+			cloud.style.MozTransform = t;
+			cloud.style.oTransform = t;
+		
+			div.appendChild( cloud );
+			layers.push( cloud );
+		}
+		
+		return div;
+	
+	
+	window.addEventListener( 'mousewheel', onContainerMouseWheel );
+	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
+
+	window.addEventListener( 'mousemove', function( e ) {
+		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
+		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
+		updateView();
+	} );
+	
+	function generate() {
+		objects = [];
+		if ( world.hasChildNodes() ) {
+			while ( world.childNodes.length >= 1 ) {
+				world.removeChild( world.firstChild );       
+			} 
+		}
+		for( var j = 0; j < 5; j++ ) {
+			objects.push( createCloud() );
+		}
+	}
+	
+	function updateView() {
+		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
+		world.style.webkitTransform = t;
+		world.style.MozTransform = t;
+		world.style.oTransform = t;
+	}
+	
+	function onContainerMouseWheel( event ) {
+			
+		event = event ? event : window.event;
+		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
+		updateView();
+		
+	}
+	
+	function update (){
+		
+		for( var j = 0; j < layers.length; j++ ) {
+			var layer = layers[ j ];
+			layer.data.a += layer.data.speed;
+			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
+			layer.style.webkitTransform = t;
+			layer.style.MozTransform = t;
+			layer.style.oTransform = t;
+		}
+		
+	 globalAnimationFrame( update );
+		
+	}
+	
+	update();
+
+	</script>
+	
+	<script type="text/javascript">/* CloudFlare analytics upgrade */
+</script></style>
+    
+	
+	<p background-clip:test; >
+		
+	</p>
+	
+    
+
+    
+
+<style>
+	h1{color:blacl;position:relative; z-index:2;	left: 50%;
+		top: 60%;
+		margin-left: -260px;
+		margin-top: -256px;
+		height: 600px;
+		width: 600px;top:-300px;	}
+	p{  color:black;
+	    position:relative;
+	    left: 50%;
+		top: 40%;
+		margin-left: -280px;
+		margin-top: -256px;
+		height: 600px;
+		width: 600px;
+	    top:-600px;
+	    font-size:20px; 
+		border:5px inset red;
+	}
+	
+	body {background-image:url(	body{
+		background-image:url(http://previews.123rf.com/images/tombaky/tombaky0812/tombaky081200210/4010012-internet-html-code-technology-black-background-Stock-Photo.jpg);
+	}
+
+	*{ 
+		box-sizing: border-box; 
+		margin: 0; 
+		padding: 0 
+	});}
+	
+  
+		
+	.htmlcode{position:relative;width:300px; top:-230px;}
+#SSC{position:relative;top:-672px;}
+	
+	.name{position:relative;color:black;background-color:aqua;top:-980px; border:5px inset red ; 
+		height: 200px;
+		width: 600px;
+	    font-size:20px;  }
+.order{position:relative;width:250px;top:10px;}
+.list{position:relative;width:330px;}
+.ist{background-color:aqua;border:5px inset red;width:600px;height:200px;top:300px;position:relative;right:10px;}
+
+.links{position:relative;width:200px; top:-1450px;left:600px;}
+li{background-color:lime;width:100px;position:relative; color:lime;top:-1450px;left:600px;}
+
+.attributes{position:relative;width:250px;height:145px;top:10px;}
+</style>
+</div>
+
+<p></p>
+</div>
+<div class="element"; ></div>
+<h1>WELCOME TO HTML
+</h1><p>HTML stands for <u>Hypertext Markup Language</u>, and as well is usefull when creating a webpage it as well made a communicating.<u>HTML is used is used to create web pages</u>. Site authors use HTML to format text as titles and headings, to arrange graphics on a webpage, to link to different pages within a website, and to link to different websites. You as well write an HTML in a similar way as this one
+</p>
+<p id="info" >
+
+<img src="https://ashishlala.files.wordpress.com/2012/09/html1.jpg" class="htmlcode" >
+<h1 id="SSC" >
+	What is CSS
+</h1>
+<p class="name"> CSS is something you might want to use since it gives details and as well <u>designs</u>. CCS is to make the eve more comfortable with your content. CSS stands for <u>Cascading Style Sheet</u> and is used by web pages to help keep information in the proper display format.CSS files can help define font, size, color, spacing, border and location of HTML information on a web page, and can also be used to create a continuous look throughout multiple pages of a website.</p>
+<h1 id="SSC" >Tags</h1>
+<p class="name" > A tag is <u>command inserted in a document</u> that specifies how the document, or a portion of the document, should be formatted.The format of an html looks somewhat like this and it includes tags. <img src="http://cdni.tutorialchip.com/wp-content/uploads/2011/01/Adding-Styles-to-an-HTMl-Tag.jpg" class="order"
+	
+</p>
+<h1 id="SSC" >Attribute Change </h1>  <p class="name" > Attribute change the properties of tags and are placed only <u>inside</u> the starting tag. An exapmple would be <img src="http://images.techhive.com/images/idge/imported/article/jvw/1999/04/tags-100157921-orig.gif"class="attributes" >  </p>
+	
+<h1 id="SSC" >
+	Tags <p class="ist" > Here is a list of some tags you can use while using Html.I will be defining four tags, the top one <u>bold</u> and is a font weight makes the some text basically bold,the <u>italic</u> is a font-style and as you can see it makes it go sideways,the underline tag creates a line uder your text, while the strong tag is similar to bold were the words attract your eye more  <img src="http://3.bp.blogspot.com/-hDzpACtH5Dg/UJ9kHHuji6I/AAAAAAAAAs8/QlTGaGpwqsQ/s640/on-page-optimizaton-4.gif" class="list"> </p>
+</h1>
+
+     <ul class=links> <li><a href="About_Me.html">Look a website about me</a></li>
+     <li><a href="Computer_hardware_part_2.html">coputer hardware part 2</a></li>
+    <li><a href="computer_hardware.html">coputer hardware</a></li>
+            <li><a href="Welcome.html">HTML</a>Welcome</li> </ul>
+</html>
