@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta type="" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<style>
+
+   /*This is the background colors */
+      html {
+  background: black;
+ background-image: -webkit-radial-gradient(50% 30% ellipse at center top, black 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(center bottom, 60% 50% ellipse, white 0%, black 100%);
+  background-image: radial-gradient(50% 30% ellipse at center top, white 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(60% 30% ellipse at center bottom, white 0%, black 90%);
+  background-attachment: fixed;
+  color: black;
+}
+
+  * { 
+    margin: 0;
+    padding: 0;
+  }
+  footer, section, header, aside, figure {
+    display: block;
+  }
+  
+  form {
+    
+    top:200px;
+    height:50px;
+    width:365px;
+    position:relative;
+    left:500px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+   #newitem:focus{
+   background-color:black;
+   color:white;
+   }
+   
+   
+ #newitem {
+  
+   height:25px;
+   position:relative;
+   top:7px;
+    width: 160px;
+  }
+  #todolist {
+    left:35px;
+    position:relative;
+    top:14px;
+    width: 280px;
+    margin: 10px;
+  }
+   
+  #todolist li {
+    border-radius: 2px;
+    list-style: none;
+    background: #eee;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    position: relative;
+  }
+  #todolist li:nth-child(2n){
+    background: #ccc;
+  }
+ #todolist li:hover{
+   background-color:black;
+    color:white;
+  
+ }
+  #todolist li:hover:after,
+  #todolist li.done:after {
+    content: '✔ ';
+    color: #060;
+    position: absolute;
+    right: 5px;    
+  }
+  #todolist li.done:hover:after {
+    content: 'delete';
+    font-weight: bold;
+    color: #c00;
+    position: absolute;
+    right: 5px;    
+  }
+  
+
+#add{
+  font-size:20px;
+  font-weight:bold;
+  position:relative;
+  top:13px;
+}
+#submit{
+  height:30px;
+  width:55px;
+   border:0px;
+   -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+  position:relative;
+  top:7px;
+}
+  #clear{
+     height:30px;
+     width:55px;
+    border:0px;
+    position:relative;
+top:7px;  
+    
+  }
+   #clear:hover{
+     background-color:black;
+     color:white;
+   }
+     #submit:hover{
+     background-color:black;
+     color:white;
+   }
+   #links{position:absolute;width:200px;padding:8px;;font-size:30px;background-color:white; filter: alpha(opacity=60);left:-500px; top:-160px; }
+</style>
+</head>
+<body>
+    <form action="#" method="post">
+      <div>
+               <label id="add"  for="newitem">Add Text</label>
+        <input type="text" name="newitem" id="newitem" 
+               placeholder="new item" required>
+      <button id="submit">Submit</button>
+       <button id="clear" >clear </button>
+       <li id="todolist"></li>
+          
+           <ul id="links">
+          
+                  <li><a href="Calculator.html">Calculator</a></li> 
+              <li><a href="index.html">Home</a></li> 
+               <li><a href="InfoSite.html">Info Site</a></li> 
+      </ul>
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      </div>
+       
+    
+
+<script src='todolist2.js'></script>
+</body>
+</html>
+
+
+
+
+

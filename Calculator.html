@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+        <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+
+
+    <title>CodePen - JavaScript calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+   
+    
+        <style>
+        /*This is the background colors and as well were everything is placed at*/
+      html {
+  background: black;
+  background-image: -webkit-radial-gradient(50% 30% ellipse at center top, #201e40 0%, black 100%)  , -webkit-radial-gradient(center bottom, 60% 50% ellipse, white 100%, #100a1c 100%);
+  background-image: radial-gradient(50% 30% ellipse at center top, #201e40 0%, black 100%), radial-gradient(60% 50% ellipse at center bottom,white ,  white 100%);
+  background-attachment: fixed;
+  color: black;
+}
+/*same as below*/
+body {
+  color: #6cacc5;
+  font: 300 18px/1.6 "Source Sans Pro",sans-serif;
+  margin: 0;
+  padding: 5em 0 2em;
+  text-align: center;
+}
+/*coloring of the word calculator */
+h1 {
+  
+  position:relative;
+  top:0px;
+  left:-50px;
+    color:aqua;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* This is just a space between the word calculator 
+and the actual calculator since it bugs when too close*/
+.space {
+ 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+  color: #8c5059;
+  font-weight: 400;
+  margin: 0 auto 6em;
+  max-width: 9em;
+}
+/* location and width of the calculator before and after inputs */
+.calculator {
+position:relative;
+  top:-100px;
+  font-size: 28px;
+  margin: 0 auto;
+  width: 10em;
+}
+.calculator::before, .calculator::after {
+  content: " ";
+  display: table;
+}
+.calculator::after {
+  clear: both;
+}
+
+/* Calculator after dividing by zero, it breaks, basically an impossible equation */
+.broken {
+  -webkit-animation: broken 2s;
+          animation: broken 2s;
+  -webkit-transform: translate3d(0, -2000px, 0);
+          transform: translate3d(0, -2000px, 0);
+  opacity: 0;
+}
+/* The result you gain when input the equation */
+.viewer {
+  color: aqua;
+  float: left;
+  line-height: 3em;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;  
+    width: 7.5em;
+  height: 3em;
+}
+/* the buttons in which the user can interact with to input for an equation */
+button {
+  border: 0;
+  background: aqua;
+  color: black;
+  float: left;
+   1t cursor: pointer;
+  font: inherit;
+  margin: 0.25em;
+  width: 2em;
+  height: 2em;
+  -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+}
+/* this is the color you shall gain while hovering the button */
+button:hover {
+  background: #201e40;
+}
+button:focus {
+  outline: 0;
+  /* The value fade-ins that appear */
+}
+button:focus::after {
+  -webkit-animation: zoom 1s;
+          animation: zoom 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  content: attr(data-num);
+  cursor: default;
+  font-size: 100px;
+  position: absolute;
+  top: 1.5em;
+  left: 50%;
+  text-align: center;
+  margin-left: -24px;
+  opacity: 0;
+  width: 48px;
+}
+
+/* Same as above, modified for operators */
+.ops:focus::after {
+  content: attr(data-ops);
+  margin-left: -210px;
+  width: 420px;
+}
+
+/* Same as above, modified for result */
+.equals:focus::after {
+  content: attr(data-result);
+  margin-left: -300px;
+  width: 600px;
+}
+
+/* Reset button, resets the equation */
+.reset {
+  background: rgba(201, 120, 116, 0.28);
+  color: black;
+  font-weight: 400;
+  margin-left: -77px;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: -20em;
+  left: 50%;
+  width: auto;
+  height: auto;
+  /* When button is revealed */
+}
+/* hoover to show color  */
+.reset:hover {
+  background: #c97874;
+  color: #100a1c;
+}
+.reset.show {
+  top: 20em;
+  -webkit-animation: fadein 4s;
+          animation: fadein 4s;
+}
+
+
+
+/* Reset button fadein and as well size of calculator  */
+@-webkit-keyframes fadein {
+  0% {
+    top: 20em;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  0% {
+    top: 20em;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (min-width: 420px) {
+  .calculator {
+    width: 26em;
+
+  }
+
+  .viewer {
+    width:21em;
+  }
+
+  button {
+    margin: .5em;
+  }
+}
+
+
+  .links{position:relative;width:200px;padding:8px;top:-500px; }
+    
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+  </head>
+
+  <body>
+
+    <h1>Calculator</h1>
+
+<p class="space"></p>
+
+<div id="calculator" class="calculator">
+
+  <button id="clear" class="clear">C</button>
+
+  <div id="viewer" class="viewer">0</div>
+<!--Num would be the number it goes when pressing a button with a number
+data-num is what would be what it represents
+ops would be the representation of a mathematical operations
+mathematical equations dont have data-num they instead have class to represent they are an operation
+button goes back to style 
+
+
+
+
+278-->
+
+  <button class="num" data-num="1">1</button>
+  <button class="num" data-num="2">2</button>
+  <button class="num" data-num="3">3</button>
+  
+  <button class="num" data-num="4">4</button>
+  <button class="num" data-num="5">5</button>
+  <button class="num" data-num="6">6</button>
+ 
+  <button class="num" data-num="7">7</button>
+  <button class="num" data-num="8">8</button>
+  <button class="num" data-num="9">9</button>
+
+  <button class="num" data-num="0">0</button>
+  <button class="num" data-num=".">.</button>
+ 
+  <button data-ops="divided" class="ops">/</button>
+  <button class="num" data-num=""></button>
+  <button data-ops="power" class="ops">^</button>
+  <button data-ops="plus" class="ops">+</button>
+   <button data-ops="minus" class="ops">-</button>
+  <button data-ops="times" class="ops">*</button>
+  <button id="equals" class="" data-result="">=</button>
+  <button data-ops="negative" class="ops">-/+</button>
+  <button class="num" data-num=""></button>
+
+  <button data-ops="" class=""></button>
+  <button data-ops="" class=""></button>
+  <button data-ops="" class=""></button>
+    <button data-ops="" class=""></button>
+ 
+
+
+</div>
+<!--This is the reset button in wich it shall cancel the equation-->
+<button id="reset" class="reset">Reset Universe?</button>
+    
+
+  
+     <script  src="calculator.js"></script>
+
+     <script>
+   
+</script>
+   <ul class="links">
+  <li><a href="ToDoList.html">To do list</a></li> 
+              <li><a href="index.html">Home</a></li> 
+               <li><a href="InfoSite.html">Info Site</a></li> 
+</ul>
+
+    
+  </body>
+</html>
