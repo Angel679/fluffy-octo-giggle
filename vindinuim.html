@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+            #title{
+                position:relative;
+                text-align:center;
+                font-size:40px;
+                border-style:solid;
+            }
+            
+            #section{
+                
+                /*left:100px;*/
+                left:50px;
+                border-style:solid;
+                position:relative;
+                text-align:center;
+                width:650px;
+     
+            }
+            
+            #image{
+              
+
+                position:relative;
+
+
+            }
+            #part{
+                 
+                position:relative;
+                left:22px;
+                background-color:white;
+                width:600px;
+          
+            }
+            #side{
+                top:-962px;
+                position:relative;
+                left:744px;
+                width:483px;
+                border-style:solid;
+            }
+      
+body {
+position:relative;
+width:1300px;
+height:670px;
+}
+      
+      code{
+          font-size:14px;
+      position:relative;
+      left:-28px;
+      }
+  
+    ul {
+  
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+li a {
+    position:relative;
+    top:-4855px;
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+        </style>
+        <title>
+            Vindinium
+        
+             </title>
+    </head>
+    <body>
+        
+<h1 id="title">Vindinium </h1>
+
+<h2 id="section"><p id="part"> Vindinium is a game where you have a total of 4 bots fight each other while capturing mines which at first you would have to defeat these goblins who would take away a total of 20 health. You could also loose your claimed mines if you are defeated by any of the other bots. The goal of the game is to capture the most amount of mines to gain gold which the bot with the highest gold in the end would win. Now to avoid defeat it would be wise for your bot to be able to head towards the taverns which would heal you by 50 in return for 2 gold. But be warned as by just walking you would loose health and a confrontation with another bot would loose you another 20 health.<p>
+      
+      <p>
+          My Bot is abled to go to taverns to heal, collect mines, attack the enemy with the most mines, camp in the tavern when it has the majority of mines, and collect mines if an enemy which I have labled as victim is camping in a taven. I've decided to use these codes because together they allow my bot to able to counter and allow victory to my bot. Forexample my bot is able to discover the bot with the most mines using a variable I named victim which comapres each bot besides itself to the others and finds out if it has the most mines and if he does he becomes the victim because my bot would hunt it down and be a priority. On the other hand, my bot does the exact opposite with victim as this one command compares my bots mines with the other bots and if my bot has the majority of mines he would head to the tavern, and stay their and basically become un-killable as the tavern is right next to him until some other bot gains the majority: if he does he becomes the victim. Now once I implemented this code some other students started to use a similar mechanism which caused me to create my next code, when a victim is right next to a tavern my bot would go collect mines which would disturb the others students code
+          
+      </p>
+    
+      
+       </h2>
+       
+          <h2 id="side">
+              <img src="http://stratosprovatopoulos.com/wp-content/uploads/2014/02/screenshot.png" id="image" >
+                <pre >
+      <code>
+       
+        /*labelling all bots to Bots so I wouldn't have 
+        re spell it every time  */
+        var Bots = [bot.bot1, bot.bot2, bot.bot3, bot.bot4];
+        Bots.splice(bot.yourBot.id - 1, 1);
+        //Position of my bot
+        var myPos = [bot.yourBot.pos.x, bot.yourBot.pos.y];
+    
+      
+        //This helps to identify enemyMines excluding himself 
+        var enemyMines = [];
+        if (bot.yourBot.id != 1) 
+        enemyMines = enemyMines.concat(bot.bot1mines);
+        if (bot.yourBot.id != 2)
+        enemyMines = enemyMines.concat(bot.bot2mines);
+        if (bot.yourBot.id != 3)
+        enemyMines = enemyMines.concat(bot.bot3mines);
+        if (bot.yourBot.id != 4)
+        enemyMines = enemyMines.concat(bot.bot4mines);
+
+       
+        /*This allows the bot find the nearest
+        mine widthin its reach by using the
+        already establish command freemines
+        and finding the distance between
+        his position and the mine*/
+        var nearMine = bot.freeMines[0];
+        for (i = 0; i < bot.freeMines.length; i++) {
+            if (bot.findDistance(myPos, nearMine) > 
+            bot.findDistance(myPos, bot.freeMines[i])) {
+                nearMine = bot.freeMines[i];
+            }
+        }
+        
+      /* This command allows my Bot to know of 
+      every mine in the map using an already
+      establish variable enemyMines and finding
+      the distance between my Bots position
+      and all the mines*/
+        var everyMine = enemyMines[0];
+        for (i = 0; i < enemyMines.length; i++) {
+            if (bot.findDistance(myPos, everyMine)> 
+            bot.findDistance(myPos, enemyMines[i])) {
+                everyMine = enemyMines[i];
+            }
+        }
+       
+        /*Similar to the ones above, this command
+        finds the closest tavern to my bot 
+        as it finds the distance between my bot 
+        and a tavern using myPos and bot.taverns */
+        var closestTavern = bot.taverns[0];
+        for (var i = 0; i < bot.taverns.length; i++) {
+            if (bot.findDistance(myPos, closestTavern) > 
+            bot.findDistance(myPos, bot.taverns[i])) {
+                closestTavern = bot.taverns[i];
+            }
+        }
+        
+        /*Var attacking and victem work together to 
+        to discover which Bot has the most mines
+        besides itself. This works as each if or else
+        select a certain bot and would compare its 
+        mineCount to the other ones and if its greater
+        he would become a victim and attacking would
+        be true */
+      
+        var attacking = false;
+        var victim = 0;
+        if (Bots[0].mineCount > Bots[1].mineCount &&
+        Bots[0].mineCount > Bots[2].mineCount) {
+            victim = 0;
+            attacking = true;
+        }
+        else if (Bots[1].mineCount > Bots[2].mineCount &&
+        Bots[1].mineCount > Bots[0].mineCount) {
+            victim = 1;
+            attacking = true;
+        }
+        else if (Bots[2].mineCount > Bots[1].mineCount &&
+        Bots[2].mineCount > Bots[0].mineCount) {
+            victim = 2;
+            attacking = true;
+        }
+        else {
+            victim = 0;
+            attacking = false;
+        }
+         
+         /* Like the ones on top this code figures out 
+         the distance between an enemy Bot and 
+         a tavern*/
+        var enemyTavern = bot.taverns[0];
+          for (var i = 0; i < bot.taverns.length; i++){
+           if(bot.findDistance([Bots[victim].pos.x,
+           Bots[victim].pos.y], enemyTavern) >
+           bot.findDistance([Bots[victim].pos.x,
+           Bots[victim].pos.y] , bot.taverns[i])){
+                enemyTavern = bot.taverns[i];
+            }
+        }
+       /* This section of the command looks if my 
+       bot has more mines that the other ones
+       my using the mineCount command and if he does
+       have more mines then the bot would find a 
+       path between my Bots position, myPos, and
+       the tavern */
+       if (bot.yourBot.mineCount > Bots[0].mineCount 
+       && bot.yourBot.mineCount > Bots[1].mineCount 
+       && bot.yourBot.mineCount > Bots[2].mineCount) {
+        bot.goDir = bot.findPath(myPos, closestTavern);
+        }
+        /* this other section finds out if my bot has low
+        amount of mines compare to the victim, the one with
+        the most mines, and over 50 health then he would 
+        form a path between the bots position, myPos, and
+        the victim */
+        else 
+      if (bot.yourBot.mineCount <= 1 && bot.yourBot.life > 
+      50 && Bots[victim].mineCount >= 3) {
+       bot.goDir = bot.findPath(myPos, [Bots[victim].pos.x, 
+          Bots[victim].pos.y]);
+        }
+        /* this other section of the code states that
+        if the victim is next to a tavern he would go
+        look for mines */
+       else  if (bot.findDistance([Bots[victim].pos.x, 
+        Bots[victim].pos.y] , enemyTavern ) < 2 ) {
+         bot.goDir = bot.findPath(myPos, nearMine);
+        }
+        /*
+        these last parts state if my bot has less than
+        50 health he would go towards the closestTavern
+        while the second one states that if he has over
+        50 health he would gather mines
+        */
+        
+         else  if (bot.yourBot.life <= 50) {
+            bot.goDir = bot.findPath(myPos, closestTavern);
+        }
+       
+        else {
+            bot.goDir = bot.findPath(myPos, everyMine);
+        }
+
+
+          </code>
+      </pre>
+          </h2>
+      <ul>
+ 
+ 
+ <li><a href="index.html">Home</a></li> 
+</ul>
+      
+     
+
+    </body>
+</html>

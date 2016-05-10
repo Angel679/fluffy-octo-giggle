@@ -11,9 +11,7 @@
     /*
      * To determine a win condition, each square is "tagged" from left
      * to right, top to bottom, with successive powers of 2.  Each cell
-     * thus represents an individual bit in a 9-bit string, and a
-     * player's squares at any given time can be represented as a
-     * unique 9-bit value. A winner can thus be easily determined by
+     *  represents an individual bit in a 9-bit string A winner can  be  determined by
      * checking whether the player's current 9 bits have covered any
      * of the eight "three-in-a-row" combinations.
      *
@@ -60,7 +58,7 @@
 
     /*
      * Sets the clicked-on square to the current player's mark,
-     * then checks for a win or cats game.  Also changes the
+     * then checks for a win or draw game.  Also changes the
      * current player.
      */
       function set() {
@@ -74,7 +72,7 @@
             alert(turn + " wins!");
             startNewGame();
         } else if (moves === 9) {
-            alert("Draw!");
+            alert("Draw");
             startNewGame();
         } else {
             turn = turn === "X" ? "O" : "X";
@@ -119,19 +117,21 @@
      * Add the play function to the (virtual) list of onload events.
      */
     function restart() {
-	startNewGame();
-}
+ startNewGame();
+        
+    }
     if (typeof window.onload === "function") {
          oldOnload= window.onload;
         window.onload = function () {
             oldOnload(); 
             play();
+                 restart();
+                
            
         };
     } else {
         window.onload = play;
     }
-     restart();
 
 }());
 
